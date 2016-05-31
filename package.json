@@ -1,11 +1,12 @@
 {
   "private": true,
   "scripts": {
-    "build": "echo building... && typings bundle -G -o out/riot.d.ts",
-    "lint": "echo linting... && tslint \"**/*.ts\" -e \"source/**\" -e \"source-test/**\" -e \"out/**\" -e \"node_modules/**\" -e \"typings/**\"",
+    "clean": "echo cleaning... && rm -r global/",
+    "build": "echo building... && npm run clean && typings bundle -G -o global/index.d.ts && cp tsconfig.json global/",
+    "lint": "echo linting... && tslint \"**/*.ts\" -e \"source/**\" -e \"source-test/**\" -e \"global/**\" -e \"node_modules/**\" -e \"typings/**\"",
     "test": "echo testing... && cd test && ts-node ../node_modules/blue-tape/bin/blue-tape \"**/*.ts\" | tap-spec",
     "source-test": "echo source-testing... &&  echo source-test is not specified",
-    "watch": "onchange \"**/*.ts\" -i -e \"out/**\" -- npm -s run build+test",
+    "watch": "onchange \"**/*.ts\" -i -e \"global/**\" -- npm -s run build+test",
     "publish": "npm -s run lint+build && echo please publish to typings/registry",
     "source-test+test": "npm run source-test && npm test",
     "build+test": "npm run build && npm run source-test+test",

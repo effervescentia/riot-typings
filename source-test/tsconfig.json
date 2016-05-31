@@ -5,6 +5,6 @@
   },
   "files": [
     "../typings/index.d.ts",
-    "../out/riot.d.ts"
+    "../global/index.d.ts"
   ]
 }
