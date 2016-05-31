@@ -147,6 +147,4 @@ declare namespace Riot {
 
 declare var riot: Riot.Instance;
 
-declare module 'riot' {
-  export = riot;
-}
+export = riot;
