@@ -1,7 +1,6 @@
 {
   "name": "riot",
   "main": "index.d.ts",
-  "global": true,
   "homepage": "https://github.com/riot/riot",
   "version": "2.3.0",
   "devDependencies": {
