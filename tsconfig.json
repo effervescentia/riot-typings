@@ -12,7 +12,7 @@
     "node_modules",
     "typings/globals",
     "typings/modules",
-    "out"
+    "dist"
   ],
   "atom": {
     "rewriteTsconfig": true,

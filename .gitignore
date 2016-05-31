@@ -39,3 +39,6 @@ node_modules
 
 # typings
 typings
+
+# out folder
+dist

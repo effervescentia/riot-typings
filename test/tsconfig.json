@@ -6,6 +6,6 @@
   },
   "files": [
     "../typings/index.d.ts",
-    "../global/index.d.ts"
+    "../dist/index.d.ts"
   ]
 }
