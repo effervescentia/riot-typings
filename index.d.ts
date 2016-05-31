@@ -29,9 +29,9 @@ declare namespace Riot {
      * @browser
      * @server
      */
-    tag(tagName: string, html: string, construct?: (opts) => void): Tag.Tag;
-    tag(tagName: string, html: string, css: string, construct?: (opts) => void): Tag.Tag;
-    tag(tagName: string, html: string, css: string, attrs: string, construct?: (opts) => void): Tag.Tag;
+    tag(tagName: string, html: string, construct?: (opts: any) => void): Tag.Tag;
+    tag(tagName: string, html: string, css: string, construct?: (opts: any) => void): Tag.Tag;
+    tag(tagName: string, html: string, css: string, attrs: string, construct?: (opts: any) => void): Tag.Tag;
 
     /**
      * @browser
@@ -115,8 +115,8 @@ declare namespace Riot {
       root: Node;
       tags: Tag.Instance[];
 
-      update(data?: any);
-      unmount(keepParent?: boolean);
+      update(data?: any): void;
+      unmount(keepParent?: boolean): void;
       mixin(mixinName: string): void;
       mixin(mixinObject: any): void;
       mixin(mixinName: string, mixinObject: any): void;
@@ -140,13 +140,13 @@ declare namespace Riot {
       exec(callback?: () => void): void;
       query(): string;
       base(path: string): void;
-      parser(parser: (path: string) => string, secondParser?: (path: string, filter: string) => string);
+      parser(parser: (path: string) => string, secondParser?: (path: string, filter: string) => string): void;
     };
   }
 }
 
 declare var riot: Riot.Instance;
 
-declare module "riot" {
+declare module 'riot' {
   export = riot;
 }
