@@ -5,6 +5,7 @@
     "moduleResolution": "node"
   },
   "files": [
+    "./test.ts",
     "../typings/index.d.ts",
     "../dist/index.d.ts"
   ]
