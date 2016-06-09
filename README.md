@@ -1,5 +1,7 @@
 # Typed Riot
 
+[![CircleCI branch](https://img.shields.io/circleci/project/effervescentia/typed-riot/master.svg?maxAge=2592000)]()
+
 The type definition for [`riot`](https://github.com/riot/riot)
 
 ## LICENSE
