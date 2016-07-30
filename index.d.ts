@@ -52,6 +52,14 @@ declare namespace riot {
    * @browser
    * @server
    */
+  function mixin(mixinObject: any): void;
+  function mixin(mixinName: string, mixinObject: any): void;
+  function mixin(mixinName: string, mixinObject: any, global: boolean): void;
+
+  /**
+   * @browser
+   * @server
+   */
   function observable<T>(element: T): T & Observable;
 
   /**
@@ -92,6 +100,10 @@ declare namespace riot {
     trigger<T>(events: string, ...args: any[]): T;
   }
 
+  interface TagElement extends HTMLElement {
+    _tag: Tag.Instance;
+  }
+
   namespace Tag {
     interface Impl {
       impl: string;
@@ -103,19 +115,18 @@ declare namespace riot {
       hasImpl: boolean;
       opts: any;
       item: any;
-      root: Node;
+      root: TagElement;
     }
     interface Instance extends Observable {
       opts: any;
       parent?: Tag.Instance;
-      root: Node;
+      root: TagElement;
       tags: Tag.Instance[];
 
       update(data?: any): void;
       unmount(keepParent?: boolean): void;
+      mixin(...mixinObject: any[]): void;
       mixin(mixinName: string): void;
-      mixin(mixinObject: any): void;
-      mixin(mixinName: string, mixinObject: any): void;
     }
   }
 
