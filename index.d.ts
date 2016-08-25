@@ -142,7 +142,7 @@ declare namespace riot {
     interface RouteTo { (filter: string, title?: string, replaceHistory?: boolean): void; }
   }
 
-  type Router = Router.Route | Router.FilterRoute | Router.RouteTo | {
+  interface Router extends Router.Route, Router.FilterRoute, Router.RouteTo {
     create(): Router;
     start(autoExec?: boolean): void;
     stop(): void;
@@ -150,7 +150,7 @@ declare namespace riot {
     query(): string;
     base(path: string): void;
     parser(parser: (path: string) => string, secondParser?: (path: string, filter: string) => string): void;
-  };
+  }
 }
 
 export = riot;
