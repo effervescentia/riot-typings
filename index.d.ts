@@ -52,7 +52,7 @@ declare namespace riot {
    * @browser
    * @server
    */
-  function mixin(mixinObject: any): void;
+  function mixin(...mixinObject: any[]): void;
   function mixin(mixinName: string, mixinObject: any): void;
   function mixin(mixinName: string, mixinObject: any, global: boolean): void;
 
