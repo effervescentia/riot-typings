@@ -1,6 +1,6 @@
 # Typed Riot
 
-[![CircleCI branch](https://img.shields.io/circleci/project/effervescentia/typed-riot/master.svg?maxAge=2592000)]()
+[![CircleCI](https://circleci.com/gh/effervescentia/typed-riot.svg?style=svg)](https://circleci.com/gh/effervescentia/typed-riot)
 
 The type definition for [`riot`](https://github.com/riot/riot)
 
