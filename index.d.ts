@@ -63,12 +63,6 @@ declare namespace riot {
   function observable<T>(element: T): T & Observable;
 
   /**
-   * @browser
-   * @server
-   */
-  var route: Router;
-
-  /**
    * @server
    */
   var parsers: {
@@ -94,10 +88,10 @@ declare namespace riot {
   };
 
   interface Observable {
-    on<T>(events: string | '*', callback: (event?: string, ...args: any[]) => void): T;
-    one<T>(event: string, callback: () => void): T;
-    off<T>(events: string | '*', callbackToRemove?: () => void): T;
-    trigger<T>(events: string, ...args: any[]): T;
+    on(events: string | '*', callback: (event?: string, ...args: any[]) => void): this;
+    one(event: string, callback: () => void): this;
+    off(events: string | '*', callbackToRemove?: () => void): this;
+    trigger(events: string, ...args: any[]): this;
   }
 
   interface TagElement extends HTMLElement {
@@ -118,10 +112,14 @@ declare namespace riot {
       root: TagElement;
     }
     interface Instance extends Observable {
+      _riot_id: number;
+      _parent?: Tag.Instance;
+      isMounted: boolean;
       opts: any;
       parent?: Tag.Instance;
       root: TagElement;
-      tags: Tag.Instance[];
+      tags: { [key: string]: Tag.Instance | Tag.Instance[] };
+      refs: { [key: string]: HTMLElement | HTMLElement[] };
 
       update(data?: any): void;
       unmount(keepParent?: boolean): void;
@@ -134,22 +132,6 @@ declare namespace riot {
     interface Css { (tagName: string, css: string): string; }
     interface Javascript { (js: string, opts?: any): string; }
     interface Html { (html: string): string; }
-  }
-
-  namespace Router {
-    interface Route { (callback: () => void): void; }
-    interface FilterRoute { (filter: string, callback: (...params: any[]) => void): void; }
-    interface RouteTo { (filter: string, title?: string, replaceHistory?: boolean): void; }
-  }
-
-  interface Router extends Router.Route, Router.FilterRoute, Router.RouteTo {
-    create(): Router;
-    start(autoExec?: boolean): void;
-    stop(): void;
-    exec(callback?: () => void): void;
-    query(): string;
-    base(path: string): void;
-    parser(parser: (path: string) => string, secondParser?: (path: string, filter: string) => string): void;
   }
 }
 

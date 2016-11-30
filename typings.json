@@ -2,7 +2,7 @@
   "name": "riot",
   "main": "index.d.ts",
   "homepage": "https://github.com/riot/riot",
-  "version": "2.3.0",
+  "version": "3.0.1",
   "devDependencies": {
     "blue-tape": "registry:npm/blue-tape#0.1.0+20160322235613"
   },
