@@ -1,5 +1,7 @@
 # Typed Riot
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/effervescentia/typed-riot.svg)](https://greenkeeper.io/)
+
 [![CircleCI](https://circleci.com/gh/effervescentia/typed-riot.svg?style=svg)](https://circleci.com/gh/effervescentia/typed-riot)
 
 The type definition for [`riot`](https://github.com/riot/riot)
